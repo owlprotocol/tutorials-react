@@ -40,7 +40,7 @@ const GaslessTransactionInnerComponent = () => {
           })
         }
       >
-        Send test transaction
+        Send Test Transaction
       </button>
 
       <p>{!!txHash && `Transaction Hash: ${txHash}`}</p>
