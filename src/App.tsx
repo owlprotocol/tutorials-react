@@ -1,19 +1,16 @@
 import { OwlProvider } from "@owlprotocol/ui-components";
+import { API_TRPC_BASE_URL } from "@owlprotocol/envvars/browser";
+
 import "./App.css";
-import {
-  API_TRPC_BASE_URL,
-  CLERK_PUBLISHABLE_KEY,
-} from "@owlprotocol/envvars/browser";
+import { OwlWalletTest } from "./tutorials/owl-wallet.js";
 
 export const App = () => {
   return (
     <>
       <h1>Owl React Tutorials</h1>
 
-      <OwlProvider
-        apiTrpcBaseUrl={API_TRPC_BASE_URL}
-        clerkPublishableKey={CLERK_PUBLISHABLE_KEY}
-      >
+      <OwlProvider apiTrpcBaseUrl={API_TRPC_BASE_URL}>
+        <OwlWalletTest />
         {/* Add tutorial snippets below */}
       </OwlProvider>
     </>
