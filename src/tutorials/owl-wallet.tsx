@@ -1,5 +1,4 @@
 import { trpc } from "@owlprotocol/core-trpc/react-query";
-import { API_REST_BASE_URL } from "@owlprotocol/envvars";
 import {
   getOwlWallet,
   useOwlSimpleSmartAccount,
@@ -28,9 +27,7 @@ export const OwlWalletTestInner = () => {
 
   const connectors = useConnectors();
 
-  useOwlSimpleSmartAccount({
-    owlApiRestBaseUrl: API_REST_BASE_URL,
-  });
+  useOwlSimpleSmartAccount();
 
   return (
     <>
@@ -65,7 +62,7 @@ export const OwlWalletTest = () => {
     useOwlTrpcContext();
 
   const [hedwigTestnetChain] = trpc.network.get.useSuspenseQuery({
-    chainId: 1337,
+    chainId: 150150,
   });
 
   const chains = [hedwigTestnetChain] as readonly [Chain];
