@@ -2,6 +2,7 @@ import { OwlProvider } from "@owlprotocol/ui-components";
 import { API_TRPC_BASE_URL } from "@owlprotocol/envvars/browser";
 
 import "./App.css";
+import "@owlprotocol/ui-components/style.css";
 import { OwlWalletTest } from "./tutorials/owl-wallet.js";
 
 export const App = () => {
