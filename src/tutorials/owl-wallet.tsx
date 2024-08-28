@@ -1,11 +1,11 @@
 import { trpc } from "@owlprotocol/core-trpc/react-query";
 import {
   getOwlWallet,
+  OwlConnectButton,
   useOwlSimpleSmartAccount,
   useOwlTrpcContext,
 } from "@owlprotocol/ui-components";
 import {
-  ConnectButton,
   connectorsForWallets,
   RainbowKitProvider,
 } from "@rainbow-me/rainbowkit";
@@ -20,7 +20,7 @@ import {
 const projectId = import.meta.env.VITE_PROJECT_ID;
 
 if (!projectId || projectId === "PROJECT_ID")
-  throw new Error("PROJECT_ID must be defined!");
+  throw new Error("VITE_PROJECT_ID must be defined!");
 
 export const OwlWalletTestInner = () => {
   const { sendTransaction, data: txHash } = useSendTransaction();
@@ -42,17 +42,19 @@ export const OwlWalletTestInner = () => {
       >
         Send test transaction
       </button>
-
-      <p>{!!txHash && `Transaction Hash: ${txHash}`}</p>
-
       <br />
-
+      <br />
+      {!!txHash && (
+        <>
+          <p>Transaction Hash: {txHash}</p>
+        </>
+      )}
       <button onClick={() => connectors.forEach((c) => c.disconnect())}>
         Disconnect All
       </button>
-
       <br />
-      <ConnectButton />
+      <br />
+      <OwlConnectButton projectId={projectId} />
     </>
   );
 };
