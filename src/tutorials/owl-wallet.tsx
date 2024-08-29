@@ -60,37 +60,14 @@ export const OwlWalletTestInner = () => {
 };
 
 export const OwlWalletTest = () => {
-  const { setOpenSignInDialog, owlJwt, signedIn, isLoaded, owlSignOut } =
-    useOwlTrpcContext();
-
   const [hedwigTestnetChain] = trpc.network.get.useSuspenseQuery({
-    chainId: 150150,
+    chainId: 1337,
   });
 
   const chains = [hedwigTestnetChain] as readonly [Chain];
 
-  const owlWallet = getOwlWallet({
-    owlJwt,
-    owlSignOut,
-    signedIn,
-    isLoaded,
-    setOpenSignInDialog,
-    projectId,
-  });
-
-  const connectors = connectorsForWallets(
-    [
-      {
-        groupName: "Recommended",
-        wallets: [owlWallet],
-      },
-    ],
-    { projectId: "owlProtocol", appName: "Owl Protocol Storybook" }
-  );
-
   const config = createConfig({
     chains,
-    connectors,
     transports: {
       [hedwigTestnetChain.id]: http(hedwigTestnetChain.rpcDefault),
     },
@@ -98,9 +75,7 @@ export const OwlWalletTest = () => {
 
   return (
     <WagmiProvider config={config}>
-      <RainbowKitProvider>
-        <OwlWalletTestInner />
-      </RainbowKitProvider>
+      <OwlWalletTestInner />
     </WagmiProvider>
   );
 };
