@@ -55,7 +55,7 @@ export const OwlWalletTestInner = () => {
 
 export const OwlWalletTest = () => {
   const [hedwigTestnetChain] = trpc.network.get.useSuspenseQuery({
-    chainId: 1337,
+    chainId: 150150,
   });
 
   const chains = [hedwigTestnetChain] as readonly [Chain];
