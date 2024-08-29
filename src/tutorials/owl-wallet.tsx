@@ -38,11 +38,7 @@ export const OwlWalletTestInner = () => {
       </button>
       <br />
       <br />
-      {!!txHash && (
-        <>
-          <p>Transaction Hash: {txHash}</p>
-        </>
-      )}
+      {!!txHash && <p>Transaction Hash: {txHash}</p>}
       <button onClick={() => connectors.forEach((c) => c.disconnect())}>
         Disconnect All
       </button>
