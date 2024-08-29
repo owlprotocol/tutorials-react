@@ -1,14 +1,8 @@
 import { trpc } from "@owlprotocol/core-trpc/react-query";
 import {
-  getOwlWallet,
   OwlConnectButton,
   useOwlSimpleSmartAccount,
-  useOwlTrpcContext,
 } from "@owlprotocol/ui-components";
-import {
-  connectorsForWallets,
-  RainbowKitProvider,
-} from "@rainbow-me/rainbowkit";
 import { Chain, http, zeroAddress } from "viem";
 import {
   createConfig,
