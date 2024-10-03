@@ -16,7 +16,7 @@ const projectId = import.meta.env.VITE_PROJECT_ID;
 if (!projectId || projectId === "PROJECT_ID")
   throw new Error("VITE_PROJECT_ID must be defined!");
 
-export const OwlWalletTestInner = () => {
+export const TransactionsOwlWalletTestInner = () => {
   const { sendTransaction, data: txHash } = useSendTransaction();
 
   const connectors = useConnectors();
@@ -49,7 +49,7 @@ export const OwlWalletTestInner = () => {
   );
 };
 
-export const OwlWalletTest = () => {
+export const TransactionsOwlWalletTest = () => {
   const [hedwigTestnetChain] = trpc.network.get.useSuspenseQuery({
     chainId: 150150,
   });
@@ -65,7 +65,7 @@ export const OwlWalletTest = () => {
 
   return (
     <WagmiProvider config={config}>
-      <OwlWalletTestInner />
+      <TransactionsOwlWalletTest />
     </WagmiProvider>
   );
 };
