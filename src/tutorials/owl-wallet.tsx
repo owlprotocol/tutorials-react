@@ -2,6 +2,7 @@ import { trpc } from "@owlprotocol/core-trpc/react-query";
 import {
   getDefaultConfig,
   useOwlTrpcContext,
+  OwlWalletButton,
 } from "@owlprotocol/ui-components";
 import { Chain } from "viem";
 import { WagmiProvider } from "wagmi";
@@ -27,7 +28,7 @@ export const OwlWalletTest = () => {
 
   return (
     <WagmiProvider config={config}>
-      <OwlWallet projectId={projectId} />
+      <OwlWalletButton projectId={projectId} />
     </WagmiProvider>
   );
 };

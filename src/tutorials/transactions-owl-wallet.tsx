@@ -21,7 +21,7 @@ export const TransactionsOwlWalletTestInner = () => {
 
   const connectors = useConnectors();
 
-  useOwlSimpleSmartAccount();
+  useOwlSimpleSmartAccount({ projectId });
 
   return (
     <>
